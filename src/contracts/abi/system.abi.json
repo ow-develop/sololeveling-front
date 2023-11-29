@@ -1,0 +1,973 @@
+[
+  {
+    "inputs": [],
+    "name": "DoesNotEnoughStoneBalance",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidArgument",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidCollectionId",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidMonster",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidMonsterSignature",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidPercentage",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidRankType",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyOperator",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyOperatorMaster",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "previousAdmin",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "newAdmin",
+        "type": "address"
+      }
+    ],
+    "name": "AdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "beacon",
+        "type": "address"
+      }
+    ],
+    "name": "BeaconUpgraded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "target",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "targetId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "Create",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "hunter",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "enum BaseStorage.RankType",
+        "name": "nextMonsterRank",
+        "type": "uint8"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "monsterId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "requestAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "aroseCount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "usedStone",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "isSuccess",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "nextMonsterId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "MonsterArose",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "hunter",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "enum BaseStorage.RankType",
+        "name": "monsterRank",
+        "type": "uint8"
+      },
+      {
+        "indexed": true,
+        "internalType": "bool",
+        "name": "isShadow",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "essenceStone",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "monsterIds",
+        "type": "uint256[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "monsterAmounts",
+        "type": "uint256[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "MonsterReturned",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "hunter",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "essenceStone",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256[]",
+            "name": "normalMonsterIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "normalMonsterAmounts",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "shadowMonsterIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "shadowMonsterAmounts",
+            "type": "uint256[]"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct SystemBase.MonsterSet",
+        "name": "returnedMonster",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "MonsterReturnedBatch",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "hunter",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "enum BaseStorage.RankType",
+        "name": "upgradedRank",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "upgradedAmount",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256[]",
+            "name": "monsterIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "monsterAmounts",
+            "type": "uint256[]"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct SystemBase.UseMonster",
+        "name": "usedMonster",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "usedStone",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "resultMonsterIds",
+        "type": "uint256[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "MonsterUpgraded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "implementation",
+        "type": "address"
+      }
+    ],
+    "name": "Upgraded",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_nextMonsterRank",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_monsterId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_requestAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes[]",
+        "name": "_monsterSignatures",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "ariseMonster",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getDenominator",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getEssenceStoneCollectionId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getEssenceStoneWhenReturned",
+    "outputs": [
+      {
+        "internalType": "uint256[6]",
+        "name": "normalEssenceStones",
+        "type": "uint256[6]"
+      },
+      {
+        "internalType": "uint256[3]",
+        "name": "shadowEssenceStones",
+        "type": "uint256[3]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_hunter",
+        "type": "address"
+      },
+      {
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_monsterRank",
+        "type": "uint8"
+      }
+    ],
+    "name": "getHunterAriseCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_hunter",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_isShadow",
+        "type": "bool"
+      },
+      {
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_monsterRank",
+        "type": "uint8"
+      }
+    ],
+    "name": "getHunterReturnCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_hunter",
+        "type": "address"
+      },
+      {
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_monsterRank",
+        "type": "uint8"
+      }
+    ],
+    "name": "getHunterUpgradeCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "_isShadow",
+        "type": "bool"
+      }
+    ],
+    "name": "getMonsterCollectionId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getMonsterFactoryContract",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPercentageForArise",
+    "outputs": [
+      {
+        "internalType": "uint256[3]",
+        "name": "",
+        "type": "uint256[3]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getProjectContract",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRandomContract",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRequiredMonsterForUpgrade",
+    "outputs": [
+      {
+        "internalType": "uint256[5]",
+        "name": "",
+        "type": "uint256[5]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRequiredStoneForArise",
+    "outputs": [
+      {
+        "internalType": "uint256[3]",
+        "name": "",
+        "type": "uint256[3]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRequiredStoneForUpgrade",
+    "outputs": [
+      {
+        "internalType": "uint256[5]",
+        "name": "",
+        "type": "uint256[5]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getSystemCount",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256[6]",
+            "name": "monsterUpgradeCounts",
+            "type": "uint256[6]"
+          },
+          {
+            "internalType": "uint256[6]",
+            "name": "monsterAriseCounts",
+            "type": "uint256[6]"
+          },
+          {
+            "internalType": "uint256[6]",
+            "name": "monsterReturnCounts",
+            "type": "uint256[6]"
+          },
+          {
+            "internalType": "uint256[6]",
+            "name": "shadowReturnCounts",
+            "type": "uint256[6]"
+          }
+        ],
+        "internalType": "struct SystemBase.SystemCount",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISLProject",
+        "name": "_projectContract",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ISLMonsterFactory",
+        "name": "_monsterFactoryContract",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ISLRandom",
+        "name": "_randomContract",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_essenceStoneCollectionId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_normalMonsterCollectionId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_shadowMonsterCollectionId",
+        "type": "uint256"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "proxiableUUID",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_monsterRank",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_monsterIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_monsterAmounts",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bool",
+        "name": "_isShadow",
+        "type": "bool"
+      }
+    ],
+    "name": "returnMonster",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256[]",
+            "name": "normalMonsterIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "normalMonsterAmounts",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "shadowMonsterIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "shadowMonsterAmounts",
+            "type": "uint256[]"
+          }
+        ],
+        "internalType": "struct SystemBase.MonsterSet",
+        "name": "_monsterSet",
+        "type": "tuple"
+      }
+    ],
+    "name": "returnMonsterBatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_essenceStoneCollectionId",
+        "type": "uint256"
+      }
+    ],
+    "name": "setEssenceStoneCollectionId",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[6]",
+        "name": "_normalEssenceStones",
+        "type": "uint256[6]"
+      },
+      {
+        "internalType": "uint256[3]",
+        "name": "_shadowEssenceStones",
+        "type": "uint256[3]"
+      }
+    ],
+    "name": "setEssenceStoneWhenReturned",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_monsterCollectionId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "_isShadow",
+        "type": "bool"
+      }
+    ],
+    "name": "setMonsterCollectionId",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISLMonsterFactory",
+        "name": "_monsterFactoryContract",
+        "type": "address"
+      }
+    ],
+    "name": "setMonsterFactoryContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[3]",
+        "name": "_percentages",
+        "type": "uint256[3]"
+      }
+    ],
+    "name": "setPercentageForArise",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISLProject",
+        "name": "_projectContract",
+        "type": "address"
+      }
+    ],
+    "name": "setProjectContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISLRandom",
+        "name": "_randomContract",
+        "type": "address"
+      }
+    ],
+    "name": "setRandomContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[5]",
+        "name": "_requiredMonsters",
+        "type": "uint256[5]"
+      }
+    ],
+    "name": "setRequiredMonsterForUpgrade",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[3]",
+        "name": "_requiredStones",
+        "type": "uint256[3]"
+      }
+    ],
+    "name": "setRequiredStoneForArise",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[5]",
+        "name": "_requiredStones",
+        "type": "uint256[5]"
+      }
+    ],
+    "name": "setRequiredStoneForUpgrade",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_monsterRank",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_requestAmount",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256[]",
+            "name": "monsterIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "monsterAmounts",
+            "type": "uint256[]"
+          }
+        ],
+        "internalType": "struct SystemBase.UseMonster",
+        "name": "_useMonster",
+        "type": "tuple"
+      },
+      {
+        "internalType": "bytes[]",
+        "name": "_monsterSignatures",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "upgradeMonster",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newImplementation",
+        "type": "address"
+      }
+    ],
+    "name": "upgradeTo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newImplementation",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "upgradeToAndCall",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  }
+]

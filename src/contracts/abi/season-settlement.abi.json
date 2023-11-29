@@ -1,0 +1,800 @@
+[
+  {
+    "inputs": [],
+    "name": "AlreadyClaimed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidCollectionId",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidRate",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidSeasonId",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyOperator",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyOperatorMaster",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "previousAdmin",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "newAdmin",
+        "type": "address"
+      }
+    ],
+    "name": "AdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "beacon",
+        "type": "address"
+      }
+    ],
+    "name": "BeaconUpgraded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "target",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "targetId",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "Create",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "seasonId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "hunter",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "mintedSeasonScore",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "isSRankRewardTokenMinted",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "SRankRewardTokenId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "SeasonRewardClaimed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "quest",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "activity",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "collecting",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "SetScoreRate",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "implementation",
+        "type": "address"
+      }
+    ],
+    "name": "Upgraded",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_seasonId",
+        "type": "uint256"
+      }
+    ],
+    "name": "claimSeasonReward",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_seasonId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_hunter",
+        "type": "address"
+      }
+    ],
+    "name": "getCurrentSeasonScore",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "questScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedQuestScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "activityScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedActivityScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "collectingScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedCollectingScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "seasonScore",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SeasonSettlementBase.SeasonScore",
+        "name": "seasonScore",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_seasonId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address[]",
+        "name": "_hunters",
+        "type": "address[]"
+      }
+    ],
+    "name": "getCurrentSeasonScoreBatch",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "questScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedQuestScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "activityScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedActivityScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "collectingScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedCollectingScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "seasonScore",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SeasonSettlementBase.SeasonScore[]",
+        "name": "seasonScores",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getDenominator",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getDungeonGateContract",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_seasonId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_hunter",
+        "type": "address"
+      }
+    ],
+    "name": "getEndedSeasonScore",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "questScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedQuestScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "activityScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedActivityScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "collectingScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedCollectingScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "seasonScore",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SeasonSettlementBase.SeasonScore",
+        "name": "seasonScore",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_seasonId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address[]",
+        "name": "_hunters",
+        "type": "address[]"
+      }
+    ],
+    "name": "getEndedSeasonScoreBatch",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "questScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedQuestScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "activityScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedActivityScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "collectingScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "convertedCollectingScore",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "seasonScore",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SeasonSettlementBase.SeasonScore[]",
+        "name": "seasonScores",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getProjectContract",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getSRankRewardCollectionId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getScorePerGate",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getScoreRate",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "quest",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "activity",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "collecting",
+            "type": "uint32"
+          }
+        ],
+        "internalType": "struct SeasonSettlementBase.ScoreRate",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getSeasonContract",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getSeasonQuestContract",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getSeasonScoreCollectionId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISLProject",
+        "name": "_projectContract",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ISLSeason",
+        "name": "_seasonContract",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ISLSeasonQuest",
+        "name": "_seasonQuestContract",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ISLDungeonGate",
+        "name": "_dungeonGateContract",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_SRankRewardCollectionId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_seasonScoreCollectionId",
+        "type": "uint256"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_seasonId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_hunter",
+        "type": "address"
+      }
+    ],
+    "name": "isSeasonRewardClaimed",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "proxiableUUID",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISLDungeonGate",
+        "name": "_dungeonGateContract",
+        "type": "address"
+      }
+    ],
+    "name": "setDungeonGateContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISLProject",
+        "name": "_projectContract",
+        "type": "address"
+      }
+    ],
+    "name": "setProjectContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_SRankRewardCollectionId",
+        "type": "uint256"
+      }
+    ],
+    "name": "setSRankRewardCollectionId",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_scorePerGate",
+        "type": "uint256"
+      }
+    ],
+    "name": "setScorePerGate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "_questRate",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_activityRate",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_collectingRate",
+        "type": "uint32"
+      }
+    ],
+    "name": "setScoreRate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISLSeason",
+        "name": "_seasonContract",
+        "type": "address"
+      }
+    ],
+    "name": "setSeasonContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISLSeasonQuest",
+        "name": "_seasonQuestContract",
+        "type": "address"
+      }
+    ],
+    "name": "setSeasonQuestContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_seasonScoreCollectionId",
+        "type": "uint256"
+      }
+    ],
+    "name": "setSeasonScoreCollectionId",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newImplementation",
+        "type": "address"
+      }
+    ],
+    "name": "upgradeTo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newImplementation",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "upgradeToAndCall",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  }
+]

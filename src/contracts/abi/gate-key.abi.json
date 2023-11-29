@@ -1,0 +1,1463 @@
+[
+  {
+    "type": "error",
+    "inputs": [
+    ],
+    "name": "DoesNotExistTokenId"
+  },
+  {
+    "type": "error",
+    "inputs": [
+    ],
+    "name": "ExceedBalance"
+  },
+  {
+    "type": "error",
+    "inputs": [
+    ],
+    "name": "InvalidPrice"
+  },
+  {
+    "type": "error",
+    "inputs": [
+    ],
+    "name": "OnlyController"
+  },
+  {
+    "type": "error",
+    "inputs": [
+    ],
+    "name": "OnlyOperator"
+  },
+  {
+    "type": "error",
+    "inputs": [
+    ],
+    "name": "OnlyOperatorMaster"
+  },
+  {
+    "type": "error",
+    "inputs": [
+    ],
+    "name": "SellPaused"
+  },
+  {
+    "type": "error",
+    "inputs": [
+    ],
+    "name": "SignatureVerifyFailed"
+  },
+  {
+    "type": "error",
+    "inputs": [
+    ],
+    "name": "TransferFailed"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "previousAdmin"
+      },
+      {
+        "type": "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "newAdmin"
+      }
+    ],
+    "name": "AdminChanged"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "account"
+      },
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator"
+      },
+      {
+        "type": "bool",
+        "indexed": false,
+        "internalType": "bool",
+        "name": "approved"
+      }
+    ],
+    "name": "ApprovalForAll"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "beacon"
+      }
+    ],
+    "name": "BeaconUpgraded"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "controller"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "ControllerAdded"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "controller"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "ControllerRemoved"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "string",
+        "indexed": false,
+        "internalType": "string",
+        "name": "target"
+      },
+      {
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "targetId"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "Create"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version"
+      }
+    ],
+    "name": "Initialized"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to"
+      },
+      {
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "enum BaseStorage.RankType",
+        "name": "keyRank"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "KeyMinted"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to"
+      },
+      {
+        "type": "uint8[]",
+        "indexed": false,
+        "internalType": "enum BaseStorage.RankType[]",
+        "name": "keyRanks"
+      },
+      {
+        "type": "uint256[]",
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "amounts"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "KeyMintedBatch"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "buyer"
+      },
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to"
+      },
+      {
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "enum BaseStorage.RankType",
+        "name": "keyRank"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "price"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "KeySold"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "buyer"
+      },
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to"
+      },
+      {
+        "type": "uint8[]",
+        "indexed": false,
+        "internalType": "enum BaseStorage.RankType[]",
+        "name": "keyRanks"
+      },
+      {
+        "type": "uint256[]",
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "amounts"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "price"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "KeySoldBatch"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "string",
+        "indexed": false,
+        "internalType": "string",
+        "name": "baseTokenURI"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "SetBaseTokenURI"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "enum GateKeyBase.PriceMode",
+        "name": "priceMode"
+      },
+      {
+        "type": "uint256[6]",
+        "indexed": false,
+        "internalType": "uint256[6]",
+        "name": "prices"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "SetKeyPrice"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "enum GateKeyBase.PriceMode",
+        "name": "priceMode"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "SetPriceMode"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "bool",
+        "indexed": false,
+        "internalType": "bool",
+        "name": "paused"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "SetSellPaused"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator"
+      },
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "from"
+      },
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to"
+      },
+      {
+        "type": "uint256[]",
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "ids"
+      },
+      {
+        "type": "uint256[]",
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "values"
+      }
+    ],
+    "name": "TransferBatch"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator"
+      },
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "from"
+      },
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "id"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value"
+      }
+    ],
+    "name": "TransferSingle"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "string",
+        "indexed": false,
+        "internalType": "string",
+        "name": "value"
+      },
+      {
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id"
+      }
+    ],
+    "name": "URI"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "implementation"
+      }
+    ],
+    "name": "Upgraded"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "Withdrawal"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_controller"
+      }
+    ],
+    "name": "addController",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "account"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "id"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address[]",
+        "internalType": "address[]",
+        "name": "accounts"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "ids"
+      }
+    ],
+    "name": "balanceOfBatch",
+    "outputs": [
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "account"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "id"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "value"
+      }
+    ],
+    "name": "burn",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "account"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "ids"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "values"
+      }
+    ],
+    "name": "burnBatch",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_to"
+      },
+      {
+        "type": "uint8",
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_keyRank"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "_amount"
+      }
+    ],
+    "name": "buyKey",
+    "outputs": [
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_to"
+      },
+      {
+        "type": "uint8[]",
+        "internalType": "enum BaseStorage.RankType[]",
+        "name": "_keyRanks"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "_amounts"
+      }
+    ],
+    "name": "buyKeyBatch",
+    "outputs": [
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "id"
+      }
+    ],
+    "name": "exists",
+    "outputs": [
+      {
+        "type": "bool",
+        "internalType": "bool",
+        "name": ""
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "ids"
+      }
+    ],
+    "name": "existsBatch",
+    "outputs": [
+      {
+        "type": "bool",
+        "internalType": "bool",
+        "name": ""
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "inputs": [
+    ],
+    "name": "getBalance",
+    "outputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "_tokenId"
+      }
+    ],
+    "name": "getBurnedSupply",
+    "outputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+    ],
+    "name": "getControllers",
+    "outputs": [
+      {
+        "type": "address[]",
+        "internalType": "address[]",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint8",
+        "internalType": "enum GateKeyBase.PriceMode",
+        "name": "_priceMode"
+      }
+    ],
+    "name": "getKeyPricePerRank",
+    "outputs": [
+      {
+        "type": "uint256[6]",
+        "internalType": "uint256[6]",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint8",
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_keyRank"
+      }
+    ],
+    "name": "getLatestKeyPrice",
+    "outputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "_tokenId"
+      }
+    ],
+    "name": "getMintedSupply",
+    "outputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+    ],
+    "name": "getPriceFeedContract",
+    "outputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+    ],
+    "name": "getPriceMode",
+    "outputs": [
+      {
+        "type": "uint8",
+        "internalType": "enum GateKeyBase.PriceMode",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+    ],
+    "name": "getProjectContract",
+    "outputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+    ],
+    "name": "getSellPaused",
+    "outputs": [
+      {
+        "type": "bool",
+        "internalType": "bool",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_account"
+      }
+    ],
+    "name": "getWhitelistNonce",
+    "outputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "contract ISLProject",
+        "name": "_projectContract"
+      },
+      {
+        "type": "address",
+        "internalType": "contract IPriceFeed",
+        "name": "_priceFeedContract"
+      },
+      {
+        "type": "address[]",
+        "internalType": "address[]",
+        "name": "_controllers"
+      },
+      {
+        "type": "string",
+        "internalType": "string",
+        "name": "_baseTokenURI"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "account"
+      },
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "operator"
+      }
+    ],
+    "name": "isApprovedForAll",
+    "outputs": [
+      {
+        "type": "bool",
+        "internalType": "bool",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_to"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "_tokenId"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "_amount"
+      }
+    ],
+    "name": "mint",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_to"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "_tokenIds"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "_amounts"
+      }
+    ],
+    "name": "mintBatch",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_to"
+      },
+      {
+        "type": "uint8",
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_keyRank"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "_amount"
+      }
+    ],
+    "name": "mintKey",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_to"
+      },
+      {
+        "type": "uint8[]",
+        "internalType": "enum BaseStorage.RankType[]",
+        "name": "_keyRanks"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "_amounts"
+      }
+    ],
+    "name": "mintKeyBatch",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint8",
+        "internalType": "enum BaseStorage.RankType",
+        "name": "_keyRank"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "_amount"
+      },
+      {
+        "type": "bytes",
+        "internalType": "bytes",
+        "name": "_whitelistSignature"
+      }
+    ],
+    "name": "mintKeyByWhitelist",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint8[]",
+        "internalType": "enum BaseStorage.RankType[]",
+        "name": "_keyRanks"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "_amounts"
+      },
+      {
+        "type": "bytes",
+        "internalType": "bytes",
+        "name": "_whitelistSignature"
+      }
+    ],
+    "name": "mintKeyByWhitelistBatch",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+    ],
+    "name": "name",
+    "outputs": [
+      {
+        "type": "string",
+        "internalType": "string",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+    ],
+    "name": "proxiableUUID",
+    "outputs": [
+      {
+        "type": "bytes32",
+        "internalType": "bytes32",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_controller"
+      }
+    ],
+    "name": "removeController",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "from"
+      },
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "to"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "ids"
+      },
+      {
+        "type": "uint256[]",
+        "internalType": "uint256[]",
+        "name": "amounts"
+      },
+      {
+        "type": "bytes",
+        "internalType": "bytes",
+        "name": "data"
+      }
+    ],
+    "name": "safeBatchTransferFrom",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "from"
+      },
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "to"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "id"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "amount"
+      },
+      {
+        "type": "bytes",
+        "internalType": "bytes",
+        "name": "data"
+      }
+    ],
+    "name": "safeTransferFrom",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "operator"
+      },
+      {
+        "type": "bool",
+        "internalType": "bool",
+        "name": "approved"
+      }
+    ],
+    "name": "setApprovalForAll",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "string",
+        "internalType": "string",
+        "name": "_baseTokenURI"
+      }
+    ],
+    "name": "setBaseTokenURI",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint8",
+        "internalType": "enum GateKeyBase.PriceMode",
+        "name": "_priceMode"
+      },
+      {
+        "type": "uint256[6]",
+        "internalType": "uint256[6]",
+        "name": "_prices"
+      }
+    ],
+    "name": "setKeyPricePerRank",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "contract IPriceFeed",
+        "name": "_priceFeedContract"
+      }
+    ],
+    "name": "setPriceFeedContract",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint8",
+        "internalType": "enum GateKeyBase.PriceMode",
+        "name": "_priceMode"
+      }
+    ],
+    "name": "setPriceMode",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "contract ISLProject",
+        "name": "_projectContract"
+      }
+    ],
+    "name": "setProjectContract",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "bool",
+        "internalType": "bool",
+        "name": "_paused"
+      }
+    ],
+    "name": "setSellPaused",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "bytes4",
+        "internalType": "bytes4",
+        "name": "_interfaceId"
+      }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "type": "bool",
+        "internalType": "bool",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+    ],
+    "name": "symbol",
+    "outputs": [
+      {
+        "type": "string",
+        "internalType": "string",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "id"
+      }
+    ],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "newImplementation"
+      }
+    ],
+    "name": "upgradeTo",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "newImplementation"
+      },
+      {
+        "type": "bytes",
+        "internalType": "bytes",
+        "name": "data"
+      }
+    ],
+    "name": "upgradeToAndCall",
+    "outputs": [
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "_tokenId"
+      }
+    ],
+    "name": "uri",
+    "outputs": [
+      {
+        "type": "string",
+        "internalType": "string",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_to"
+      },
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": "_amount"
+      }
+    ],
+    "name": "withdraw",
+    "outputs": [
+    ],
+    "stateMutability": "nonpayable"
+  }
+]

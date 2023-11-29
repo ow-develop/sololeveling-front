@@ -1,0 +1,251 @@
+[
+  {
+    "type": "error",
+    "inputs": [],
+    "name": "OnlyOperator"
+  },
+  {
+    "type": "error",
+    "inputs": [],
+    "name": "OnlyOperatorMaster"
+  },
+  {
+    "type": "error",
+    "inputs": [],
+    "name": "RandomSignatureVerifyFailed"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "previousAdmin"
+      },
+      {
+        "type": "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "newAdmin"
+      }
+    ],
+    "name": "AdminChanged"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "beacon"
+      }
+    ],
+    "name": "BeaconUpgraded"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "string",
+        "indexed": false,
+        "internalType": "string",
+        "name": "target"
+      },
+      {
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "targetId"
+      },
+      {
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp"
+      }
+    ],
+    "name": "Create"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version"
+      }
+    ],
+    "name": "Initialized"
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "type": "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "implementation"
+      }
+    ],
+    "name": "Upgraded"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_hunter"
+      }
+    ],
+    "name": "getNonce",
+    "outputs": [
+      {
+        "type": "uint256",
+        "internalType": "uint256",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [],
+    "name": "getProjectContract",
+    "outputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [],
+    "name": "getRandomSigner",
+    "outputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "contract ISLProject",
+        "name": "_projectContract"
+      },
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_signer"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [],
+    "name": "proxiableUUID",
+    "outputs": [
+      {
+        "type": "bytes32",
+        "internalType": "bytes32",
+        "name": ""
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "contract ISLProject",
+        "name": "_projectContract"
+      }
+    ],
+    "name": "setProjectContract",
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_signer"
+      }
+    ],
+    "name": "setRandomSigner",
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "newImplementation"
+      }
+    ],
+    "name": "upgradeTo",
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "newImplementation"
+      },
+      {
+        "type": "bytes",
+        "internalType": "bytes",
+        "name": "data"
+      }
+    ],
+    "name": "upgradeToAndCall",
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "type": "address",
+        "internalType": "address",
+        "name": "_hunter"
+      },
+      {
+        "type": "bytes",
+        "internalType": "bytes",
+        "name": "_signature"
+      }
+    ],
+    "name": "verifyRandomSignature",
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
+]

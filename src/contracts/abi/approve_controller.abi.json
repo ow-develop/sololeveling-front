@@ -1,0 +1,311 @@
+[{
+  "inputs": [
+    {
+      "internalType": "contract ISLProject",
+      "name": "_projectContract",
+      "type": "address"
+    },
+    {
+      "internalType": "address[]",
+      "name": "_contracts",
+      "type": "address[]"
+    }
+  ],
+  "stateMutability": "nonpayable",
+  "type": "constructor"
+},
+{
+"inputs": [],
+"name": "AlreadyExistContract",
+"type": "error"
+},
+{
+"inputs": [],
+"name": "DoesNotExistContract",
+"type": "error"
+},
+{
+"inputs": [],
+"name": "OnlyOperator",
+"type": "error"
+},
+{
+"inputs": [],
+"name": "OnlyOperatorMaster",
+"type": "error"
+},
+{
+"anonymous": false,
+"inputs": [
+{
+"indexed": true,
+"internalType": "address",
+"name": "account",
+"type": "address"
+},
+{
+"indexed": false,
+"internalType": "uint256",
+"name": "timestamp",
+"type": "uint256"
+}
+],
+"name": "Approved",
+"type": "event"
+},
+{
+"anonymous": false,
+"inputs": [
+{
+"indexed": true,
+"internalType": "address",
+"name": "contractAddress",
+"type": "address"
+},
+{
+"indexed": false,
+"internalType": "uint256",
+"name": "timestamp",
+"type": "uint256"
+}
+],
+"name": "ContractAdded",
+"type": "event"
+},
+{
+"anonymous": false,
+"inputs": [
+{
+"indexed": true,
+"internalType": "address",
+"name": "contractAddress",
+"type": "address"
+},
+{
+"indexed": false,
+"internalType": "uint256",
+"name": "timestamp",
+"type": "uint256"
+}
+],
+"name": "ContractRemoved",
+"type": "event"
+},
+{
+"anonymous": false,
+"inputs": [
+{
+"indexed": false,
+"internalType": "string",
+"name": "target",
+"type": "string"
+},
+{
+"indexed": false,
+"internalType": "uint64",
+"name": "targetId",
+"type": "uint64"
+},
+{
+"indexed": false,
+"internalType": "uint256",
+"name": "timestamp",
+"type": "uint256"
+}
+],
+"name": "Create",
+"type": "event"
+},
+{
+"anonymous": false,
+"inputs": [
+{
+"indexed": true,
+"internalType": "address",
+"name": "account",
+"type": "address"
+},
+{
+"indexed": false,
+"internalType": "uint256",
+"name": "timestamp",
+"type": "uint256"
+}
+],
+"name": "Revoked",
+"type": "event"
+},
+{
+"inputs": [
+{
+"internalType": "address",
+"name": "_contract",
+"type": "address"
+}
+],
+"name": "addApprovedContract",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "approve",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "_index",
+"type": "uint256"
+}
+],
+"name": "getApprovedContractByIndex",
+"outputs": [
+{
+"internalType": "address",
+"name": "",
+"type": "address"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "getApprovedContractLength",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "getApprovedContracts",
+"outputs": [
+{
+"internalType": "address[]",
+"name": "",
+"type": "address[]"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "getProjectContract",
+"outputs": [
+{
+"internalType": "address",
+"name": "",
+"type": "address"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "address",
+"name": "_contract",
+"type": "address"
+}
+],
+"name": "isApprovedContract",
+"outputs": [
+{
+"internalType": "bool",
+"name": "",
+"type": "bool"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "address",
+"name": "_account",
+"type": "address"
+},
+{
+"internalType": "address",
+"name": "_operator",
+"type": "address"
+}
+],
+"name": "isProjectApproved",
+"outputs": [
+{
+"internalType": "bool",
+"name": "",
+"type": "bool"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "address",
+"name": "_account",
+"type": "address"
+}
+],
+"name": "isRevokedAccount",
+"outputs": [
+{
+"internalType": "bool",
+"name": "",
+"type": "bool"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "address",
+"name": "_contract",
+"type": "address"
+}
+],
+"name": "removeApprovedContract",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "revoke",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "contract ISLProject",
+"name": "_projectContract",
+"type": "address"
+}
+],
+"name": "setProjectContract",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+}
+]

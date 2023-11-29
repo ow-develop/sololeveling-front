@@ -1,0 +1,18 @@
+{
+  "extends": "@ow-develop/ow-fe-config/tsconfig/next.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "ignoreDeprecations": "5.0",
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "@types",
+    "src/lib/i18n/i18next-scanner.config.js"
+  ],
+  "exclude": ["node_modules"]
+}
